@@ -20,7 +20,7 @@ const WhoNeedsToComplyComponent: React.FC<Props> = ({ data }) => {
 
           <div className="sm:col-span-9 lg:col-span-6">
             <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 lg:mb-6">
-              {data.title}
+               {data?.title || "Who needs to comply?"}
             </h2>
 
             <p className="text-white">{data.description}</p>
