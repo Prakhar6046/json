@@ -17,7 +17,8 @@ const FedRampAdvisory = ({
   description,
 }: FedRampAdvisoryProps) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-14 mt-8 sm:mt-14 lg:mt-20">
+    console.log("imageSrc", imageSrc)
+    < div className = "grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-14 mt-8 sm:mt-14 lg:mt-20" >
       <div>
         <Image
           src={imageSrc}
@@ -38,7 +39,7 @@ const FedRampAdvisory = ({
 
         <p>{description}</p>
       </div>
-    </div>
+    </div >
   )
 }
 

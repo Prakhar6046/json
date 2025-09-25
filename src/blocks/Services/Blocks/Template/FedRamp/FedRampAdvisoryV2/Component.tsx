@@ -14,6 +14,7 @@ const FedRampAdvisoryV2 = ({
   imageSrc,
   imageAlt,
 }: ConsultingListSectionProps) => {
+  console.log("imageSrc", imageSrc)
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-14 mt-4 md:mt-20">
       <div className="my-auto">
