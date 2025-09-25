@@ -19,7 +19,7 @@ export const SiteSettings: any = {
       name: 'WebsiteTitle',
       type: 'text',
       label: 'Website Title',
-      defaultValue: 'AWCWS',
+      defaultValue: 'WCG',
     },
   ],
 }

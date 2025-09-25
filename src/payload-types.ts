@@ -109,12 +109,14 @@ export interface Config {
     footer: Footer;
     'resources-defaults': ResourcesDefault;
     'contact-form-settings': ContactFormSetting;
+    'site-settings': SiteSetting;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
     'resources-defaults': ResourcesDefaultsSelect<false> | ResourcesDefaultsSelect<true>;
     'contact-form-settings': ContactFormSettingsSelect<false> | ContactFormSettingsSelect<true>;
+    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
   };
   locale: null;
   user: User & {
@@ -8858,6 +8860,20 @@ export interface ContactFormSetting {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings".
+ */
+export interface SiteSetting {
+  id: number;
+  /**
+   * Upload the site favicon (usually a .ico or small .png)
+   */
+  favicon?: (number | null) | Media;
+  WebsiteTitle?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -9033,6 +9049,17 @@ export interface ContactFormSettingsSelect<T extends boolean = true> {
         stars?: T;
         author?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings_select".
+ */
+export interface SiteSettingsSelect<T extends boolean = true> {
+  favicon?: T;
+  WebsiteTitle?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
