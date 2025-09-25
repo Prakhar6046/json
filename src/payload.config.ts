@@ -21,6 +21,7 @@ import { FeaturedResourcesDefaults } from './globals/FeaturedResourcesDefaults/c
 import { ContactFormSettings } from './globals/ContactFormSettings/config'
 import { Services } from './collections/Services'
 import { CaseStudies } from './collections/CaseStudies'
+import { SiteSettings } from './globals/SiteSettings'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -71,7 +72,7 @@ export default buildConfig({
   }),
   collections: [Pages, Posts, Media, Categories, Users, Services, CaseStudies],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer, FeaturedResourcesDefaults, ContactFormSettings],
+  globals: [Header, Footer, FeaturedResourcesDefaults, ContactFormSettings,SiteSettings],
   plugins: [
     ...plugins,
     s3Storage({
