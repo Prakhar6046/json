@@ -1,8 +1,9 @@
+import { Media } from '@/payload-types'
 import Image from 'next/image'
 
 type ReadinessAssessmentProps = {
   items: {
-    icon: string
+    icon: Media
     width: number
     height: number
     alt: string
@@ -10,7 +11,7 @@ type ReadinessAssessmentProps = {
   }[]
   subtitle: string
   title: string
-  paragraphs: { text: string }[] 
+  paragraphs: { text: string }[]
 }
 type ReadinessAssessmentProp = ReadinessAssessmentProps
 
@@ -31,7 +32,7 @@ const ReadinessAssessmentSection = ({
                 className="flex items-center gap-5 bg-white rounded-lg p-6 shadow-[0_0_20px_0_rgba(0,0,0,0.06)]"
               >
                 <div className="size-8">
-                  <Image src={item.icon} width={item.width} height={item.height} alt={item.alt} />
+                  <Image src={item.icon?.url || ''} width={item.width} height={item.height} alt={item.alt} />
                 </div>
                 <h4 className="font-medium text-xl">{item.text}</h4>
               </div>

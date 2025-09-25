@@ -4,7 +4,7 @@ import Image from 'next/image'
 type ConsultingListSectionProps = {
   description: string
   listItems: { text: string; icon?: string }[]
-  imageSrc: string
+  imageSrc: { url: string }
   imageAlt: string
 }
 
@@ -14,7 +14,7 @@ const FedRampAdvisoryV2 = ({
   imageSrc,
   imageAlt,
 }: ConsultingListSectionProps) => {
-  console.log("imageSrc", imageSrc)
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-14 mt-4 md:mt-20">
       <div className="my-auto">
@@ -24,7 +24,7 @@ const FedRampAdvisoryV2 = ({
           {listItems.map((item, index) => (
             <li key={index} className="flex items-start gap-2">
               <Image
-                src={item.icon || '/new-images/prime_check-circle.svg'}
+                src={item.icon || ''}
                 width={22}
                 height={22}
                 alt="Check Circle"
@@ -38,7 +38,7 @@ const FedRampAdvisoryV2 = ({
 
       <div>
         <Image
-          src={imageSrc}
+          src={imageSrc.url}
           width={590}
           height={365}
           alt={imageAlt}

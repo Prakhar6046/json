@@ -1,3 +1,4 @@
+import { Media } from '@/payload-types'
 import Image from 'next/image'
 
 type AuthorizationMonitoringProps = {
@@ -5,15 +6,15 @@ type AuthorizationMonitoringProps = {
     subtitle: string
     title: string
     paragraphs: { text: string; bold?: boolean }[]
-    listItems: { text: string; icon?: string }[]
-    image: string
+    listItems: { text: string; icon?: Media }[]
+    image: Media
   }
   monitoring: {
     subtitle: string
     title: string
     description: string
-    listItems: { text: string; icon?: string }[]
-    image: string
+    listItems: { text: string; icon?: Media }[]
+    image: Media
   }
 }
 type AuthorizationMonitoringProp = AuthorizationMonitoringProps
@@ -44,7 +45,7 @@ const AuthorizationMonitoringSection = ({
             {authorization.listItems.map((item, idx) => (
               <li key={idx} className="flex items-start gap-2">
                 <Image
-                  src={item.icon || '/new-images/prime_check-circle.svg'}
+                  src={item.icon?.url || ''}
                   width={22}
                   height={22}
                   alt="Check Circle"
@@ -58,7 +59,7 @@ const AuthorizationMonitoringSection = ({
 
         <div className="order-1 md:order-2">
           <Image
-            src={authorization.image}
+            src={authorization.image?.url || ''}
             width={590}
             height={365}
             alt={authorization.title}
@@ -71,7 +72,7 @@ const AuthorizationMonitoringSection = ({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-14 mt-10 sm:mt-20">
         <div>
           <Image
-            src={monitoring.image}
+            src={monitoring.image?.url || ''}
             width={590}
             height={365}
             alt={monitoring.title}
@@ -93,7 +94,7 @@ const AuthorizationMonitoringSection = ({
             {monitoring.listItems.map((item, idx) => (
               <li key={idx} className="flex items-start gap-2">
                 <Image
-                  src={item.icon || '/new-images/prime_check-circle.svg'}
+                  src={item.icon?.url || ''}
                   width={22}
                   height={22}
                   alt="Check Circle"

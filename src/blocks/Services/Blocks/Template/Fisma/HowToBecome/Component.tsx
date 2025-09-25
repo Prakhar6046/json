@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
+import { Media } from '@/payload-types'
 
 type FISMABecomeSectionProps = {
   heading: string
@@ -10,9 +11,9 @@ type FISMABecomeSectionProps = {
     title: string
     text: string
   }[]
-  borderImageUrl: { url?: string }
-  listStyleImageUrl: { url?: string }
-  backgroundImageUrl: { url?: string }
+  borderImageUrl: Media
+  listStyleImageUrl: Media
+  backgroundImageUrl: Media
 }
 
 const FISMABecomeSection = ({
@@ -24,13 +25,7 @@ const FISMABecomeSection = ({
   listStyleImageUrl,
   backgroundImageUrl,
 }: FISMABecomeSectionProps) => {
-  console.log("++++", heading,
-    description,
-    requirementsHeading,
-    requirements,
-    borderImageUrl,
-    listStyleImageUrl,
-    backgroundImageUrl,)
+
   return (
     <section className="bg-background md:px-14 py-10 md:py-20 relative">
       <div className="container mx-auto md:px-0 px-4 grid grid-cols-1 md:grid-cols-2 items-center">
@@ -38,7 +33,7 @@ const FISMABecomeSection = ({
           <div className="relative">
             <h1 className="text-4xl md:text-6xl">{heading}</h1>
             <div className="md:w-20 w-8 absolute top-0 -left-1 md:-top-4 md:-left-4">
-              <Image width={80} height={80} src={borderImageUrl.url} alt="" />
+              <Image width={80} height={80} src={borderImageUrl?.url || ''} alt="" />
             </div>
           </div>
 
@@ -46,7 +41,7 @@ const FISMABecomeSection = ({
             <p className="text-lg my-4">{description}</p>
             <h3 className="text-xl font-bold">{requirementsHeading}</h3>
             <ul
-              style={{ listStyleImage: `url(${listStyleImageUrl.url})` }}
+              style={{ listStyleImage: `url(${listStyleImageUrl?.url || ''})` }}
               className="flex flex-col gap-5 ps-5"
             >
               {requirements.map((req, idx) => (
@@ -62,7 +57,7 @@ const FISMABecomeSection = ({
 
       <div
         className="max-w-[1200px] w-full h-[800px] bg-no-repeat bg-contain absolute left-0 top-40 z-10 hidden md:block"
-        style={{ backgroundImage: `url(${backgroundImageUrl.url})` }}
+        style={{ backgroundImage: `url(${backgroundImageUrl?.url || ''})` }}
       ></div>
     </section>
   )

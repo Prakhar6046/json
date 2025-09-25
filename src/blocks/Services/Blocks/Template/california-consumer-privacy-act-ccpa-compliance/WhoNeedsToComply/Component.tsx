@@ -1,3 +1,4 @@
+import { Media } from '@/payload-types';
 import React from 'react';
 
 interface Props {
@@ -5,7 +6,7 @@ interface Props {
     title?: string;
     description?: string;
     items?: { number?: string; text?: string }[];
-    backgroundImage?: { url?: string };
+    backgroundImage?: Media;
   };
 }
 
