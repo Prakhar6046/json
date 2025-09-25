@@ -1,8 +1,8 @@
+import { Media } from '@/payload-types'
 import Image from 'next/image'
 
-// add the type for the props
 type FedRampAdvisoryProps = {
-  imageSrc: { url: string }
+  imageSrc: Media
   imageAlt: string
   subtitle: string
   title: string
@@ -21,7 +21,7 @@ const FedRampAdvisory = ({
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-14 mt-8 sm:mt-14 lg:mt-20">
       <div>
         <Image
-          src={imageSrc.url}
+          src={imageSrc?.url || ''}
           width={590}
           height={365}
           alt={imageAlt}

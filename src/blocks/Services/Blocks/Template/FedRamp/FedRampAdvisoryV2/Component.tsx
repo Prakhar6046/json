@@ -1,10 +1,10 @@
+import { Media } from '@/payload-types';
 import Image from 'next/image'
 
-// add types for props
 type ConsultingListSectionProps = {
   description: string
-  listItems: { text: string; icon?: string }[]
-  imageSrc: { url: string }
+  listItems: { text: string; icon?: Media }[]
+  imageSrc: Media
   imageAlt: string
 }
 
@@ -24,7 +24,7 @@ const FedRampAdvisoryV2 = ({
           {listItems.map((item, index) => (
             <li key={index} className="flex items-start gap-2">
               <Image
-                src={item.icon || ''}
+                src={item.icon?.url || ''}
                 width={22}
                 height={22}
                 alt="Check Circle"
@@ -38,7 +38,7 @@ const FedRampAdvisoryV2 = ({
 
       <div>
         <Image
-          src={imageSrc.url}
+          src={imageSrc?.url || ''}
           width={590}
           height={365}
           alt={imageAlt}
