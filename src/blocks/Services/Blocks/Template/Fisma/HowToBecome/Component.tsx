@@ -10,9 +10,9 @@ type FISMABecomeSectionProps = {
     title: string
     text: string
   }[]
-  borderImageUrl: string
-  listStyleImageUrl: string
-  backgroundImageUrl: string
+  borderImageUrl: { url?: string }
+  listStyleImageUrl: { url?: string }
+  backgroundImageUrl: { url?: string }
 }
 
 const FISMABecomeSection = ({
@@ -31,7 +31,7 @@ const FISMABecomeSection = ({
           <div className="relative">
             <h1 className="text-4xl md:text-6xl">{heading}</h1>
             <div className="md:w-20 w-8 absolute top-0 -left-1 md:-top-4 md:-left-4">
-              <Image width={80} height={80} src={borderImageUrl} alt="" />
+              <Image width={80} height={80} src={borderImageUrl.url} alt="" />
             </div>
           </div>
 
@@ -39,7 +39,7 @@ const FISMABecomeSection = ({
             <p className="text-lg my-4">{description}</p>
             <h3 className="text-xl font-bold">{requirementsHeading}</h3>
             <ul
-              style={{ listStyleImage: `url(${listStyleImageUrl})` }}
+              style={{ listStyleImage: `url(${listStyleImageUrl.url})` }}
               className="flex flex-col gap-5 ps-5"
             >
               {requirements.map((req, idx) => (
@@ -55,7 +55,7 @@ const FISMABecomeSection = ({
 
       <div
         className="max-w-[1200px] w-full h-[800px] bg-no-repeat bg-contain absolute left-0 top-40 z-10 hidden md:block"
-        style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+        style={{ backgroundImage: `url(${backgroundImageUrl.url})` }}
       ></div>
     </section>
   )
