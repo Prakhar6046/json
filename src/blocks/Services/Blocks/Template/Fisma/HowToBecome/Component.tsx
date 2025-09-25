@@ -24,6 +24,13 @@ const FISMABecomeSection = ({
   listStyleImageUrl,
   backgroundImageUrl,
 }: FISMABecomeSectionProps) => {
+  console.log("++++", heading,
+    description,
+    requirementsHeading,
+    requirements,
+    borderImageUrl,
+    listStyleImageUrl,
+    backgroundImageUrl,)
   return (
     <section className="bg-background md:px-14 py-10 md:py-20 relative">
       <div className="container mx-auto md:px-0 px-4 grid grid-cols-1 md:grid-cols-2 items-center">
