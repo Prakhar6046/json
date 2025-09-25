@@ -1,8 +1,9 @@
+import { Media } from '@/payload-types';
 import Image from 'next/image'
 
 type WhyChooseWCGProps = {
   heading: string
-  items: { image: string; alt: string; title: string; description: string }[]
+  items: { image: Media; alt: string; title: string; description: string }[]
 }
 type WhyChooseWCGProp = WhyChooseWCGProps
 
@@ -19,7 +20,7 @@ const WhyChooseWCGSection = ({ heading, items }: WhyChooseWCGProp) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-14">
           {items.map((item, idx) => (
             <div key={idx}>
-              <Image src={item.image} width={64} height={64} alt={item.alt} />
+              <Image src={item.image?.url || ""} width={64} height={64} alt={item.alt} />
               <h3 className="font-bold text-xl my-3.5">{item.title}</h3>
               <p>{item.description || ''}</p>
             </div>
